@@ -1,4 +1,5 @@
 import pygame
+from player import Player
 from constants import *
 
 
@@ -9,6 +10,9 @@ def main():
     pygame.init()
 
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+
+
+    player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
     print("Starting Asteroids!")
 
@@ -22,6 +26,8 @@ def main():
                 return 
 
         screen.fill("black")
+
+        player.draw(screen)
 
         pygame.display.flip()
 
