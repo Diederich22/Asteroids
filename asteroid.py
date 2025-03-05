@@ -9,8 +9,16 @@ from circleshape import CircleShape
 
 class Asteroid(CircleShape):
 
-    def __init__(self,x,y,radius):
+    def __init__(self,x,y,radius,velocity=None):
         super().__init__(x,y,radius)
+        if velocity is None:
+            self.velocity =  pygame.math.Vector2(random.uniform(-1, 1), random.uniform(-1, 1))
+        else:
+            self.velocity = velocity
+
+
+
+
 
     def draw(self, surface):
         # Draw a circle representing the asteroid
@@ -32,3 +40,7 @@ class Asteroid(CircleShape):
         velocity2 = pygame.math.Vector2.rotate(self.velocity, -angle) * 1.2
         A1 = Asteroid(self.position.x, self.position.y, (self.radius - ASTEROID_MIN_RADIUS ))
         A2 = Asteroid(self.position.x, self.position.y, (self.radius - ASTEROID_MIN_RADIUS ))            
+
+        for group in self.groups():
+            group.add(A1)
+            group.add(A2)
