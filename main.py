@@ -63,7 +63,7 @@ def main():
                 if shot.is_colliding(asteroid):
                     print(f"Collision detected! Shot: {shot}, Asteroid: {asteroid}")
                     shot.kill()
-                    asteroid.kill()
+                    asteroid.split()
 
 
 
