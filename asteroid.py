@@ -36,10 +36,11 @@ class Asteroid(CircleShape):
 
         new_radius = self.radius - ASTEROID_MIN_RADIUS
         angle = random.uniform(20, 50)
+        min_speed = 2.0
         velocity1 = pygame.math.Vector2.rotate(self.velocity, angle) * 1.2
         velocity2 = pygame.math.Vector2.rotate(self.velocity, -angle) * 1.2
-        A1 = Asteroid(self.position.x, self.position.y, (self.radius - ASTEROID_MIN_RADIUS ))
-        A2 = Asteroid(self.position.x, self.position.y, (self.radius - ASTEROID_MIN_RADIUS ))            
+        A1 = Asteroid(self.position.x, self.position.y, new_radius, velocity2)
+        A2 = Asteroid(self.position.x, self.position.y, new_radius, velocity1)
 
         for group in self.groups():
             group.add(A1)
